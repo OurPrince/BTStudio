@@ -1,4 +1,4 @@
-# BTStudio (Better Studio) v1.0
+# BTStudio - Better Studio
 
 A high-performance productivity engine for Google AI Studio designed to eliminate workflow interruptions, optimize resource usage, and modernize the user interface.
 

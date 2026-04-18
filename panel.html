@@ -1,0 +1,199 @@
+<div id="bts-main-dialog" class="bts-main-dialog ms-sliding-right-panel-dialog">
+  <!-- DIALOG HEADER -->
+  <header class="bts-dialog-header">
+    <span class="title">BTStudio Settings</span>
+    <button class="bts-close-btn" id="bts-close" aria-label="Close">
+      close
+    </button>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="bts-search-field">
+    <div class="bts-search-container">
+      <span class="material-symbols-outlined notranslate prefix-icon">search</span>
+      <input type="text" id="bts-search-input" placeholder="Search settings..." aria-label="Search">
+      <button id="bts-search-clear" class="bts-close-btn" style="display:none; width: 24px; height: 24px; font-size: 14px;">
+        close
+      </button>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="bts-tabs-header">
+    <button class="bts-tab-btn active" data-tab="bypass">Bypass</button>
+    <button class="bts-tab-btn" data-tab="optimizer">Optimization</button>
+    <button class="bts-tab-btn" data-tab="info">Info</button>
+  </div>
+
+  <!-- CONTENT CONTAINER -->
+  <div class="bts-tab-content-container">
+
+    <!-- BYPASS TAB -->
+    <div class="bts-tab-content" id="bts-tab-bypass" style="display: flex;">
+      <div class="bts-section">
+        <div class="bts-header-row">
+          <div class="bts-header-text">
+            <div class="bts-section-title">CONTENT BYPASS</div>
+            <div class="bts-section-desc">Bypass content filters and blocked response streams.</div>
+          </div>
+          <button class="bts-auto-toggle {{bypassEnabledClass}}" id="bts-bypass-master"></button>
+        </div>
+
+        <div class="bts-mode-list {{bypassListDisabledClass}}" id="bts-bypass-cards">
+          <button class="bts-mode-row {{bypassModeAngularSelected}}" data-mode="angular">
+            <div class="row-header">
+              <span class="model-icon material-symbols-outlined notranslate">bolt</span>
+              <div class="row-header-text">
+                <div class="model-title">
+                  <span class="model-title-text">Intercept (Native)</span>
+                  <span class="badge new"><span class="badge-dot"></span>Recommended</span>
+                </div>
+                <span class="model-subtitle">zero-flicker-network-interception</span>
+              </div>
+            </div>
+            <div class="model-details">
+              <ul>
+                <li class="model-carousel-row-detail"><span class="material-symbols-outlined notranslate">rocket_launch</span> Intercepts the network stream before Angular processes it.</li>
+                <li class="model-carousel-row-detail"><span class="material-symbols-outlined notranslate">flash_on</span> Instant restoration without screen flicker. Efficient & seamless.</li>
+              </ul>
+            </div>
+          </button>
+
+          <div class="bts-row-divider"></div>
+
+          <button class="bts-mode-row {{bypassModeDomSelected}}" data-mode="dom">
+            <div class="row-header">
+              <span class="model-icon material-symbols-outlined notranslate">history</span>
+              <div class="row-header-text">
+                <div class="model-title">
+                  <span class="model-title-text">Restore (Legacy)</span>
+                </div>
+                <span class="model-subtitle">mutation-observer-restoration</span>
+              </div>
+            </div>
+            <div class="model-details">
+              <ul>
+                <li class="model-carousel-row-detail"><span class="material-symbols-outlined notranslate">visibility</span> Monitors the DOM for changes and blocked content.</li>
+                <li class="model-carousel-row-detail"><span class="material-symbols-outlined notranslate">edit</span> Programmatically simulates Edit → Paste → Save automatically.</li>
+              </ul>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div> <!-- End Bypass Tab -->
+
+    <!-- OPTIMIZER TAB -->
+    <div class="bts-tab-content" id="bts-tab-optimizer">
+      <div class="bts-section">
+        <div class="bts-header-row">
+          <div class="bts-header-text">
+            <div class="bts-section-title">CHAT OPTIMIZER</div>
+            <div class="bts-section-desc">Remove old chat turns from memory to eliminate UI lag.</div>
+          </div>
+          <button class="bts-auto-toggle {{optimizerEnabledClass}}" id="bts-optimizer-master"></button>
+        </div>
+
+        <div class="bts-mode-list {{optimizerListDisabledClass}}" id="bts-optimizer-cards">
+          <div class="bts-turn-counter">
+            <span>Active turns in DOM:</span>
+            <span class="bts-count-num" id="bts-turn-count">{{turnCount}}</span>
+          </div>
+
+          <button class="bts-mode-row {{optimizerModeSmartSelected}}" data-mode="smart">
+            <div class="row-header">
+              <span class="model-icon material-symbols-outlined notranslate">storage</span>
+              <div class="row-header-text">
+                <div class="model-title">
+                  <span class="model-title-text">Buffered (Safe)</span>
+                  <span class="badge paid"><span class="badge-dot"></span>Smart Hiding</span>
+                </div>
+                <span class="model-subtitle">auto-detach-on-overflow</span>
+              </div>
+            </div>
+            <div class="model-details">
+              <ul>
+                <li class="model-carousel-row-detail"><span class="material-symbols-outlined notranslate">visibility_off</span> Hides old messages from the DOM but keeps them in memory.</li>
+                <li class="model-carousel-row-detail"><span class="material-symbols-outlined notranslate">history</span> Instantly restore previous context via the "Restore" button.</li>
+              </ul>
+            </div>
+          </button>
+
+          <div class="bts-row-divider"></div>
+
+          <button class="bts-mode-row {{optimizerModeHardSelected}}" data-mode="hard">
+            <div class="row-header">
+              <span class="model-icon material-symbols-outlined notranslate">delete</span>
+              <div class="row-header-text">
+                <div class="model-title">
+                  <span class="model-title-text">Physical (Aggressive)</span>
+                  <span class="badge danger"><span class="badge-dot"></span>Deleting</span>
+                </div>
+                <span class="model-subtitle">permanent-memory-cleanup</span>
+              </div>
+            </div>
+            <div class="model-details">
+              <ul>
+                <li class="model-carousel-row-detail"><span class="material-symbols-outlined notranslate">delete</span> Permanently removes old messages from the browser session.</li>
+                <li class="model-carousel-row-detail"><span class="material-symbols-outlined notranslate">speed</span> Peak performance for extremely long chat sessions.</li>
+              </ul>
+            </div>
+          </button>
+
+          <!-- Slider panel -->
+          <div class="bts-slider-panel {{sliderPanelActiveClass}}" id="bts-slider-panel">
+            <div class="bts-auto-row">
+              <button class="bts-auto-toggle {{autoKeepClass}}" id="bts-auto-toggle"></button>
+              <span>Auto-Limit (Recommended for large prompts)</span>
+            </div>
+            <div class="bts-slider-row">
+              <span class="bts-slider-label">Keep last</span>
+              <input type="range" class="bts-range" id="bts-keep-slider"
+                     min="2" max="{{sliderMax}}" value="{{keepLast}}"
+                     {{sliderDisabled}}>
+              <span class="bts-slider-value" id="bts-keep-value">{{keepLast}}</span>
+            </div>
+            <button class="bts-apply-btn destructive" id="bts-apply">Enforce Physical Cleanup</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End Optimizer Tab -->
+
+    <!-- INFO TAB -->
+    <div class="bts-tab-content" id="bts-tab-info">
+      <div class="bts-section">
+        <div class="bts-header-row">
+          <div class="bts-header-text">
+            <div class="bts-section-title">ABOUT BTSTUDIO</div>
+            <div class="bts-section-desc">Unofficial extension for Google AI Studio.</div>
+          </div>
+        </div>
+        <div class="bts-info-body">
+          <p><strong>BTStudio v4.0</strong> provides performance and content bypass features for a seamless experience.</p>
+          <ul class="bts-info-list">
+            <li><span class="material-symbols-outlined notranslate">check_circle</span> <span><strong>Intercept (Native) Mode</strong> hooks into the network layer.</span></li>
+            <li><span class="material-symbols-outlined notranslate">check_circle</span> <span><strong>Smart Chat Optimizer</strong> implements a CSS virtual scroller.</span></li>
+            <li><span class="material-symbols-outlined notranslate">check_circle</span> <span>Operates 100% locally on your browser.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div> <!-- End Info Tab -->
+
+    <div class="bts-divider"></div>
+
+    <!-- DONATION SECTION -->
+    <a href="https://send.monobank.ua/jar/ARDckyv3B4" target="_blank" class="bts-donation-card">
+      <div class="donation-icon">
+        <span class="material-symbols-outlined notranslate">favorite</span>
+      </div>
+      <div class="donation-content">
+        <div class="donation-title">Support Project</div>
+        <div class="donation-desc">If BTStudio helps, consider supporting development.</div>
+      </div>
+    </a>
+
+    <div class="bts-footer">
+      Unofficial extension. Not affiliated with Google or AI Studio.
+    </div>
+
+  </div> <!-- End bts-tab-content-container -->
+</div> <!-- End bts-main-dialog -->
